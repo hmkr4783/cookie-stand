@@ -19,8 +19,7 @@ var hours = [
   'Total: ',
 ];
 
-
-
+var firstPikeUl = document.getElementById('firstpike');
 
 function multiply (a, b) {
   var result = a*b;
@@ -28,31 +27,40 @@ function multiply (a, b) {
   return (final);
 }
 
-var firstPikeUl = document.getElementById('firstpike');
+function randomNumber (min, max) {
+  var result = Math.random() * (max - min + 1) + min;
+  var final = Math.floor(result);
+  console.log(final);
+  return final;
+}
 
 
 
 var render = function () {
-  function randomNumber (min, max) {
-    var result = Math.random() * (max - min + 1) + min;
-    var final = Math.floor(result);
-    console.log(final);
-    return final;
-  }
-  var firstAndPike = {
-    location: 'First and Pike',
-    averageCookies: 6.3,
-    customersCount: randomNumber(23, 65),
-    cookiesPerCustomer: 0,
-  };
-  
-  firstAndPike.cookiesPerCustomer = multiply(firstAndPike.customersCount, firstAndPike.averageCookies);
   for(var i = 0; i < hours.length; i++) {
     var liEl = document.createElement('li');
+    
+    var result = Math.floor(Math.random() * (max - min + 1) + min);
+
+
+    firstAndPike.cookiesPerCustomer = multiply(firstAndPike.customersCount, firstAndPike.averageCookies);
     liEl.textContent = `${hours[i]}: ${firstAndPike.cookiesPerCustomer[i]} cookies.`;
     firstPikeUl.appendChild(liEl);
   }
 };
+
+
+var firstAndPike = {
+  location: 'First and Pike',
+  averageCookies: 6.3,
+  customersCount: randomNumber(23, 65),
+  cookiesPerCustomer: 0,
+};
+
+
+
+
+
 
 render();
 
