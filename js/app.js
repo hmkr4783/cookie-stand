@@ -1,8 +1,24 @@
 'use strict';
 
-function StoreInformation(location, cookiesSold, cookiesSoldTotal) {
+function StoreInformation(location, cookiesSoldSixAm, cookiesSoldSevenAm, cookiesSoldEightAm, cookiesSoldNineAm, cookiesSoldTenAm,
+  cookiesSoldElevenAm, cookiesSoldTwelvePm, cookiesSoldOnePm, cookiesSoldTwoPm, cookiesSoldThreePm, cookiesSoldFourPm, cookiesSoldFivePm,
+  cookiesSoldSixPm, cookiesSoldSevenPm, cookiesSoldEightPm, cookiesSoldTotal) {
   this.location = location;
-  this.cookiesSold = cookiesSold;
+  this.cookiesSoldSixAm = cookiesSoldSixAm;
+  this.cookiesSoldSevenAm = cookiesSoldSevenAm;
+  this.cookiesSoldEightAm = cookiesSoldEightAm;
+  this.cookiesSoldNineAm = cookiesSoldNineAm;
+  this.cookiesSoldTenAm = cookiesSoldTenAm;
+  this.cookiesSoldElevenAm = cookiesSoldElevenAm;
+  this.cookiesSoldTwelvePm = cookiesSoldTwelvePm;
+  this.cookiesSoldOnePm = cookiesSoldOnePm;
+  this.cookiesSoldTwoPm = cookiesSoldTwoPm;
+  this.cookiesSoldThreePm = cookiesSoldThreePm;
+  this.cookiesSoldFourPm = cookiesSoldFourPm;
+  this.cookiesSoldFivePm = cookiesSoldFivePm;
+  this.cookiesSoldSixPm = cookiesSoldSixPm;
+  this.cookiesSoldSevenPm = cookiesSoldSevenPm;
+  this.cookiesSoldEightPm = cookiesSoldEightPm;
   this.cookiesSoldTotal = cookiesSoldTotal;
 }
 
