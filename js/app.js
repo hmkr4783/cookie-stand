@@ -34,9 +34,11 @@ function StoreInformation(location, averageCookies, max, min, store) {
   this.store = store;
   this.cookiesByStore = [];
   //create table row
+
+
   this.table = document.getElementById('shell');
   for(var i = 0; i < hours.length; i++) {
-    var liEl = document.createElement('li');
+    // var liEl = document.createElement('li');
     var maxCust = this.max;
     var minCust = this.min;
     var customerPerHour = (Math.random() * (maxCust - minCust + 1) + minCust);
@@ -77,7 +79,7 @@ var alki = new StoreInformation('Alki', 4.6, 16, 2, alkiUl);
 var cookiesSoldTotalPerHour = new StoreInformation('Totals',0 ,0);
 
 
-firstAndPike.render();
+firstAndPike.function();
 seaTacAirport.render();
 seattleCenter.render();
 capitolHill.render();
@@ -147,7 +149,6 @@ alki.render();
 //   averageCookies: 6.3,
 //   cookiesPerCustomer: 0,
 //   cookiesTotal: 0,
-      cookiesByLocation: [];
 //   render: function () {
 //     for(var i = 0; i < hours.length; i++) {
 //       var liEl = document.createElement('li');
@@ -160,7 +161,6 @@ alki.render();
 //       var cookiesTotalRounded = Math.floor(firstAndPike.cookiesTotal);
 //       liEl.textContent = `${hours[i]}: ${final} cookies.`;
 //       firstPikeUl.appendChild(liEl);
-        this.cookiesByLocation.push(final)
 //     }
 //     liEl.textContent = `Total: ${cookiesTotalRounded} cookies.`;
 //   }
