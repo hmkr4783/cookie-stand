@@ -1,0 +1,13 @@
+thead {
+    background: #888;
+  }
+  
+  td {
+    padding: 20px*60%;
+    border: solid 2px black;
+  }
+
+  img {
+      width: 50%;
+      height: 60%;
+  }
