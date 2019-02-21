@@ -79,7 +79,7 @@ var alki = new StoreInformation('Alki', 4.6, 16, 2, alkiUl);
 var cookiesSoldTotalPerHour = new StoreInformation('Totals',0 ,0);
 
 
-firstAndPike.function();
+firstAndPike.render();
 seaTacAirport.render();
 seattleCenter.render();
 capitolHill.render();
