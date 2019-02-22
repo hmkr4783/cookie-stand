@@ -3,29 +3,37 @@
 /* Making a variable hour and attaching all the times to it.
 ----------------------------------------------------------------------------------------------------*/
 var hours = [
-  '6am: ',
-  '7am: ',
-  '8am: ',
-  '9am: ',
-  '10am: ',
-  '11am: ',
-  '12pm: ',
-  '1pm: ',
-  '2pm: ',
-  '3pm: ',
-  '4pm: ',
-  '5pm: ',
-  '6pm: ',
-  '7pm: ',
-  '8pm: ',
+  '6am',
+  '7am',
+  '8am',
+  '9am',
+  '10am',
+  '11am',
+  '12pm',
+  '1pm',
+  '2pm',
+  '3pm',
+  '4pm',
+  '5pm',
+  '6pm',
+  '7pm',
+  '8pm',
 ];
 
+function random(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 /* Grabbing the ID 'cookiestands' from the html and attaching it to the
 variable, 'cookiestands'.
 ------------------------------------------------------------------------------- */
 var cookieStands = document.getElementById('cookiestands');
-
+//var shopList = [];
+var firstPikeUl = document.getElementById('firstAndPike');
+var seaTacUl = document.getElementById('SeaTacAirport');
+var seaCenUl = document.getElementById('SeattleCenter');
+var capHillUl = document.getElementById('CapitolHill');
+var alkiUl = document.getElementById('alkiBeach');
 /* This is a contructor function 
 ----------------------------------------------------------------------------------------------------*/
 function StoreInformation(location, averageCookies, max, min, storeId) {
@@ -36,60 +44,88 @@ function StoreInformation(location, averageCookies, max, min, storeId) {
   this.max = max;
   this.min = min;
   this.storeId = storeId;
-  this.cookiesByStore = [];
+  this.cookiesPerCustomerTotal = [];
 
-/* This will caculate the random customer number times average cookies.
+  /* This will caculate the random customer number times average cookies.
 ----------------------------------------------------------------------------------------------------*/
   this.totalCustomerCalculation = function(){
-    for(var i = 0; i < hours.length; i++) {
-      var maxCust = this.max;
-      var minCust = this.min;
-      var customerPerHourTotal = (Math.random() * (maxCust - minCust + 1) + minCust);
+    for (var i = 0; i < hours.length; i++) {
+      this.customerPerHour.push(random(this.min, this.max));
     }
   };
   this.totalCookiesCalculation = function() {
     this.totalcustomerCalculation();
     for (var i = 0; i < hours.length; i++) {
-      var cookiesEveryHour = Math.floor(this.customerPerHourTotal[i] * this.averageCookies);
+      var cookiesEveryHour = Math.fllor(this.customerPerHour[i] * this.averageCookies);
       this.cookiesPerCustomerTotal.push(cookiesEveryHour);
       this.cookiesTotal += cookiesEveryHour;
-      console.log(this.cookiesTotal);
     }
   };
+  /* This will create a prototype that holds the store locations and cookies total rows of table.
+----------------------------------------------------------------------------------------------------*/
+  StoreInformation.prototype.render = function() {
+    this.totalCookiesCalculation();
+
+    /* This holds the table row in the variable trEl and table data in the variable tdEl.
+    ----------------------------------------------------------------------------------------------------*/
+    var trEl = document.createElement('tr');
+    var tdEl = document.createElement('td');
+
+    /* Attaches the location names as a text to the data element and appends the data element to the row element
+    ----------------------------------------------------------------------------------------------------*/
+    tdEl.textContent = this.location;
+    trEl.appendChild(tdEl);
+
+    /* Makes the part of the row of the table that contains the data for the cookies sold daily
+    ----------------------------------------------------------------------------------------------------*/
+    for (var i = 0; i < hours.length; i++) {
+      tdEl = document.createElement('td');
+      tdEl.textContent = this.cookiesPerCustomerTotal[i];
+      trEl.appendChild(tdEl);
+    }
+
+    /* Data for the daily location total for each row.
+    ----------------------------------------------------------------------------------------------------*/
+    var thEl = document.createElement('th');
+    thEl.textContent = this.cookiesTotal;
+    trEl.appendChild(thEl);
+    cookieStands.appendChild(trEl);
+  };
+//shopList.push(this);
+}
+
+/* This function creates the first row of the table.
+------------------------------------------------------------------------------------------------------*/
+function tableHeader() {
+
+  /* This holds the table row in the variable trEl and table data in the variable tdEl.
+  ----------------------------------------------------------------------------------------------------*/
+  var trEl = document.createElement('tr');
+  var thEl = document.createElement('th');
+
+  /* This will list the hours in a row.
+  ----------------------------------------------------------------------------------------------------*/
+  for(var i = 0; i < hours.length; i ++) {
+    thEl = document.createElement('th');
+    thEl.textContent = hours[i];
+    trEl.appendChild(thEl);
+  }
+  thEl = document.createElement('th');
+  thEl.textContent = 'Daily Location Totals';
+  trEl.appendChild(thEl);
+  cookieStands.appendChild(trEl);
+}
+
+/* This function creates the last row of the table.
+----------------------------------------------------------------------------------------------------*/
+function tableFooter() {
+  var trEl = document.createElement('tr');
+  var tfEl = document.createElement('tf');
+  tfEl.textContent = 'Totals';
+  trEl.appendChild(tfEl);
 }
 
 
-/* This will create a prototype that will create rows after rows
-----------------------------------------------------------------------------------------------------*/
-StoreInformation.prototype.render =  function() {
-  this.cookiesPerCustomer();
-
-  /* Makes the first part of the horizontal row of the table. This
-  lists the location names. 
-  ----------------------------------------------------------------------------------------------------*/
-  var trEl = document.createElement('tr');
-  var tdEl = document.createElement('td');
-
-  /* Attaches the location names to the data element and appends the data element to the row element
-  ----------------------------------------------------------------------------------------------------*/
-  tdEl.textContent = this.location;
-  trEl.appendChild(tdEl);
-
-  /* Makes the part of the row of the table that contains the data for the cookies sold daily
-  ----------------------------------------------------------------------------------------------------*/
-  for (var i = 0; i < hours.length; i++) {
-    tdEl = document.createElement('td');
-    tdEl.textContent = this.cookiesTotalRounded[i];
-    trEl.appendChild(tdEl);
-  }
-
-  /* Data for the daily location total for each row.
-  ----------------------------------------------------------------------------------------------------*/
-  var thEl = document.createElement('th');
-  thEl.textContent = this.totalDailyCookies;
-  trEl.appendChild(thEl);
-  cookieStands.appendChild(trEl);
-};
 
 
 
@@ -97,26 +133,30 @@ StoreInformation.prototype.render =  function() {
 ----------------------------------------------------------------------------------------------------*/
 
 var firstAndPike = new StoreInformation('1st and Pike', 6.3, 65, 23, firstPikeUl);
+firstAndPike.render();
 
 var seaTacAirport = new StoreInformation('SeaTac Airport', 1.2, 24, 3, seaTacUl);
+seaTacAirport.render();
 
 var seattleCenter = new StoreInformation('Seattle Center', 3.7, 38, 11, seaCenUl);
+seattleCenter.render();
 
 var capitolHill = new StoreInformation('Capitol Hill', 2.3, 38, 20, capHillUl);
+capitolHill.render();
 
 var alki = new StoreInformation('Alki', 4.6, 16, 2, alkiUl);
-
+alki.render();
 //var cookiesSoldTotalPerHour = new StoreInformation('Totals',0 ,0);
 
 
-/* rendering all five locations.
-----------------------------------------------------------------------------------------------------*/
 
-firstAndPike.render();
-seaTacAirport.render();
-seattleCenter.render();
-capitolHill.render();
-alki.render();
+
+tableHeader.render();
+
+
+
+
+
 
 
 
