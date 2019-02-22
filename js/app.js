@@ -53,9 +53,11 @@ function StoreInformation(location, averageCookies, max, min, storeId) {
       var cookiesEveryHour = Math.floor(this.customerPerHourTotal[i] * this.averageCookies);
       this.cookiesPerCustomerTotal.push(cookiesEveryHour);
       this.cookiesTotal += cookiesEveryHour;
+      console.log(this.cookiesTotal);
     }
   };
 }
+
 
 /* This will create a prototype that will create rows after rows
 ----------------------------------------------------------------------------------------------------*/
