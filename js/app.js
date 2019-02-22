@@ -27,7 +27,7 @@
 // /* Grabbing the ID 'cookiestands' from the html and attaching it to the
 // variable, 'cookiestands'.
 // ------------------------------------------------------------------------------- */
-var cookieStands = document.getElementById('cookiestands');
+// var cookieStands = document.getElementById('cookiestands');
 // //var shopList = [];
 // var firstPikeUl = document.getElementById('firstAndPike');
 // var seaTacUl = document.getElementById('SeaTacAirport');
@@ -216,6 +216,7 @@ var hours = [
   '8pm',
 ];
 
+var cookieStands = document.getElementById('cookiestands');
 function tableHeader() {
 
   /* This holds the table row in the variable trEl and table data in the variable tdEl.
@@ -366,6 +367,14 @@ var alki = {
   }
 };
 
+/* This function creates the last row of the table.
+----------------------------------------------------------------------------------------------------*/
+function tableFooter() {
+  var trEl = document.createElement('tr');
+  var tfEl = document.createElement('tf');
+  tfEl.textContent = 'Totals';
+  trEl.appendChild(tfEl);
+}
 
 
 
@@ -375,3 +384,4 @@ seaTacAirport.render();
 seattleCenter.render();
 capitolHill.render();
 alki.render();
+tableFooter();
