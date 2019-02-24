@@ -18,12 +18,21 @@
     <legend> Additional Stores:<br></legend>
     <form id="additional-store">
       <fieldset>
-          Store Location Name: <input id="new-location" type="text">
-          Number of Customers(min): <input id="new-min" type="text">
-          Number of Customers(max): <input id="new-max" type="text">
-          Average Cookies Sold: <input id="average-cookies" type="text"> 
-          
+
+          <label for="newLocation">Store Location Name: </label>
+          <input name="newLocation" type="text"/>
+    
+          <label for="newMin">Number of Customers (min): </label>
+          <input name="newMin" type="number"/>
+    
+          <label for="newMax">Number of Customers (max): </label>
+          <input name="newMax" type="number"/>
+    
+          <label for="newAverageCookies">Average Cookies Sold:</label>
+          <input name="newAverageCookies" type="number">
+    
           <button type="Submit">Submit New Store Location!</button>
+
       </fieldset>
     </form>
   

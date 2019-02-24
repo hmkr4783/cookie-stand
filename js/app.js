@@ -23,6 +23,7 @@ var hours = [
 /* Grabbing the ID 'cookiestands' from the html and attaching it to the
 variable, 'cookiestands'.
 --------------------------------------------------------------------------------------------------- */
+var newStoreForm = document.getElementById('additional-store');
 var cookieStands = document.getElementById('cookiestands');
 /* making a varible that will store all the shops
 ----------------------------------------------------------------------------------------------------*/
@@ -58,6 +59,23 @@ function StoreInformation(location, averageCookies, maxC, minC, storeId) {
   shopList.push(this);
 }
 
+/* New store submission information
+----------------------------------------------------------------------------------------------------*/
+// function handleSubmit(event) {
+//   event.preventDefault();
+//   var newUserLocation = event.target.newlocation.value;
+//   var newUserMin = event.target.newMin.value;
+//   var newUserMax = event.target.newMax.value;
+//   var newUserAverageCookies = event.target.newAverageCookies.value;
+//   console.log(newUserLocation,newUserMin,newUserMax,newUserAverageCookies, "userInfo");
+
+//   new UserStore(newUserLocation, newUserAverageCookies, newUserMax, newUserMin);
+//   var table = document.getElementById('tableInfo');
+ 
+// }
+
+// newStoreForm.addEventListener('submit', handleSubmit);
+
 /* This function will create the function 'random' that will have the random number generator equation
 ----------------------------------------------------------------------------------------------------*/
 function random(min, max) {
@@ -67,6 +85,7 @@ function random(min, max) {
 ----------------------------------------------------------------------------------------------------*/
 StoreInformation.prototype.render = function() {
   this.totalCookiesCalculation();
+  // var newUserTableInfo = document.getElementById('tableInfo');
   /* This holds the table row in the variable trEl and table data in the variable tdEl.
   ----------------------------------------------------------------------------------------------------*/
   var trEl = document.createElement('tr');
@@ -88,6 +107,7 @@ StoreInformation.prototype.render = function() {
   thEl.textContent = this.cookiesTotal;
   trEl.appendChild(thEl);
   cookieStands.appendChild(trEl);
+  // newUserTableInfo.appendChild(trEl);
 };
 
 /* This function creates the first row of the table.
@@ -115,9 +135,11 @@ function tableHeader() {
 /* This function creates the last row of the table.
 ----------------------------------------------------------------------------------------------------*/
 function tableFooter() {
+  //var tfEl = document.getElementById('tableFoot');
   var trEl = document.createElement('tr');
   var thEl = document.createElement('th');
   thEl.textContent = 'Totals For All Locations';
+
   trEl.appendChild(thEl);
   /* This will set the value for allTotaled to 0.
 ----------------------------------------------------------------------------------------------------*/
@@ -146,9 +168,9 @@ var seattleCenter = new StoreInformation('Seattle Center', 3.7, 38, 11, 'seaCenU
 var capitolHill = new StoreInformation('Capitol Hill', 2.3, 38, 20, 'capHillUl');
 var alki = new StoreInformation('Alki', 4.6, 16, 2, 'alkiUl');
 
-var userSubmission = new StoreInformation(newLocation, newAverageCookies, newMax, newMin, 'new submissions');
+/* var userSubmission = new StoreInformation(newUserLocation, newUserAverageCookies, newUserMax, newUserMin, 'new submissions');*/
 
-var allShops = [firstAndPike, seaTacAirport, seattleCenter, capitolHill, alki, userSubmission];
+var allShops = [firstAndPike, seaTacAirport, seattleCenter, capitolHill, alki];
 
 /* This function renders the top part of the table.
 ----------------------------------------------------------------------------------------------------*/
@@ -164,23 +186,19 @@ tableHeader();
 ----------------------------------------------------------------------------------------------------*/
 tableFooter();
 
-function handleSubmit(event) {
-  event.preventDefault();
-  var newLocation = event.target.where.value;
-  var newMin = event.target.minNum.value;
-  var newMax = event.target.maxNum.value;
-  var newAverageCookies = event.target.avgNum.value;
-
-}
 
 
 
-// var newLocation = document.getElementById('new-location');
-// var newMin = document.getElementById('new-min');
-// var newMax = document.getElementById('new-max');
-// var newAverageCookies = document.getElementById('new-average-cookies');
+
 // var allInputs = [];
 
 // var allInputs = function() {
 
 // }
+
+
+
+// var footer = document.getElementById('tableFoot');
+  // footer.setAttribute('id', 'table')
+  // table.appendChild(footer);
+  // tableFooter();
