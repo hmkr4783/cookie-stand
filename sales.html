@@ -2,21 +2,31 @@
 <html>
 
   <head>
+    <link rel="stylesheet" href="css/reset.css">
     <meta charset="utf-8">
     <title>Calculate Daily Sales Projections</title>
+    
+    <link rel="stylesheet" href="css/style.css">
   </head>
 
   <body>
     <h1>Pat's Salmon Cookies.</h1>
-    <img src="img/salmon.png" alt="image of a salmon">
+    <img src="img/salmon.png" alt="image of a salmon" class="center" title="What does the salmon say?">
     
     <table id="cookiestands"></table>
-
-
-  
     
-
-
+    <legend> Additional Stores:<br></legend>
+    <form id="additional-store">
+      <fieldset>
+          Store Location Name: <input id="new-location" type="text">
+          Number of Customers(min): <input id="new-min" type="text">
+          Number of Customers(max): <input id="new-max" type="text">
+          Average Cookies Sold: <input id="average-cookies" type="text"> 
+          
+          <button type="Submit">Submit New Store Location!</button>
+      </fieldset>
+    </form>
+  
   <script src="js/app.js"></script> 
   </body>
 

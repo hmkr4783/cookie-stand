@@ -146,7 +146,9 @@ var seattleCenter = new StoreInformation('Seattle Center', 3.7, 38, 11, 'seaCenU
 var capitolHill = new StoreInformation('Capitol Hill', 2.3, 38, 20, 'capHillUl');
 var alki = new StoreInformation('Alki', 4.6, 16, 2, 'alkiUl');
 
-var allShops = [firstAndPike, seaTacAirport, seattleCenter, capitolHill, alki];
+var userSubmission = new StoreInformation(newLocation, newAverageCookies, newMax, newMin, 'new submissions');
+
+var allShops = [firstAndPike, seaTacAirport, seattleCenter, capitolHill, alki, userSubmission];
 
 /* This function renders the top part of the table.
 ----------------------------------------------------------------------------------------------------*/
@@ -162,3 +164,23 @@ tableHeader();
 ----------------------------------------------------------------------------------------------------*/
 tableFooter();
 
+function handleSubmit(event) {
+  event.preventDefault();
+  var newLocation = event.target.where.value;
+  var newMin = event.target.minNum.value;
+  var newMax = event.target.maxNum.value;
+  var newAverageCookies = event.target.avgNum.value;
+
+}
+
+
+
+// var newLocation = document.getElementById('new-location');
+// var newMin = document.getElementById('new-min');
+// var newMax = document.getElementById('new-max');
+// var newAverageCookies = document.getElementById('new-average-cookies');
+// var allInputs = [];
+
+// var allInputs = function() {
+
+// }

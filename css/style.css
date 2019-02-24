@@ -2,12 +2,58 @@ thead {
     background: #888;
   }
   
-  td {
-    padding: 20px*60%;
-    border: solid 2px black;
-  }
+h1 {
+  text-align: center;
+}
 
-  img {
-      width: 50%;
-      height: 60%;
-  }
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+
+td {
+  border: solid 2px black;
+  text-align: center;
+  width: 3%;
+  height: 60%;
+}
+
+tr {
+  border: solid 2px black;
+  text-align: center;
+  width: 3%;
+  height: 60%;
+}
+
+th {
+  padding: 20px*60%;
+  border: solid 2px black;
+  text-align: center;
+  width: 3%;
+  height: 60%;
+}
+
+img {
+    width: 50%;
+    height: 60%;
+}
+
+legend {
+  text-align: center;
+  margin: auto;
+  height: 80%;
+  position: relative;
+  top: 50px;
+  font-size: 25px;
+}
+
+fieldset {
+  border: solid 2px black;
+  text-align: center;
+  margin: auto;
+  position: relative;
+  top: 80px;
+  font-weight: bold;
+}
