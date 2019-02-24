@@ -186,19 +186,3 @@ tableHeader();
 ----------------------------------------------------------------------------------------------------*/
 tableFooter();
 
-
-
-
-
-// var allInputs = [];
-
-// var allInputs = function() {
-
-// }
-
-
-
-// var footer = document.getElementById('tableFoot');
-  // footer.setAttribute('id', 'table')
-  // table.appendChild(footer);
-  // tableFooter();
