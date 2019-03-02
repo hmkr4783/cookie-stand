@@ -27,6 +27,7 @@ var cookieStands = document.getElementById('cookiestands');
 /* making a varible that will store all the shops
 ----------------------------------------------------------------------------------------------------*/
 var shopList = [];
+var additionalStore = [];
 /* This is a contructor function
 ----------------------------------------------------------------------------------------------------*/
 function StoreInformation(location, averageCookies, maxC, minC) {
@@ -47,7 +48,7 @@ function StoreInformation(location, averageCookies, maxC, minC) {
   this.totalCookiesCalculation = function() {
     this.customerCountPerHour();
     for (var i = 0; i < hours.length; i++) {
-      var cookiesEveryHour = Math.ceil(this.customerPerHour[i] * this.averageCookies);
+      var cookiesEveryHour = Math.floor(this.customerPerHour[i] * this.averageCookies);
       this.cookiesPerCustomerTotal.push(cookiesEveryHour);
       this.cookiesTotal += cookiesEveryHour;
     }
@@ -60,7 +61,7 @@ function StoreInformation(location, averageCookies, maxC, minC) {
 /* This function will create the function 'random' that will have the random number generator equation
 ----------------------------------------------------------------------------------------------------*/
 function random(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  return (Math.random() * (max - min + 1)) + min;
 }
 
 
@@ -93,39 +94,6 @@ StoreInformation.prototype.render = function() {
   cookieStands.appendChild(trEl);
   // newUserTableInfo.appendChild(trEl);
 };
-
-
-
-
-
-
-// /* Event Handler
-// ----------------------------------------------------------------------------------------------------*/
-var newStoreForm = document.getElementById('additional-store');
-
-function handleSubmit(event) {
-
-  event.preventDefault();
-
-  var location = event.target.newLocation.value;
-  var averageCookies = parseInt(event.target.newAverageCookies.value);
-  var maxC = parseInt(event.target.newMax.value);
-  var minC = parseInt(event.target.newMin.value);
-
-  var storeSubmission = new StoreInformation(location, averageCookies, maxC, minC);
-
-  event.target.newLocation.value = null;
-  event.target.newMin.value = null;
-  event.target.newMax.value = null;
-  event.target.newAverageCookies.value = null;
-  shopList.push(storeSubmission);
-
-  document.getElementById('footer').remove();
-  storeSubmission.render();
-  tableFooter();
-}
-
-
 
   
 /* This function creates the first row of the table.
@@ -182,8 +150,35 @@ function tableFooter() {
   thEl.textContent = allTotaled;
   trEl.appendChild(thEl);
   cookieStands.appendChild(trEl);
-
 }
+
+
+// /* Event Handler
+// ----------------------------------------------------------------------------------------------------*/
+var newStoreForm = document.getElementById('additional-store');
+
+function handleSubmit(event) {
+
+  event.preventDefault();
+
+  var location = event.target.newLocation.value;
+  var averageCookies = parseInt(event.target.newAverageCookies.value);
+  var maxC = parseInt(event.target.newMax.value);
+  var minC = parseInt(event.target.newMin.value);
+
+  var storeSubmission = new StoreInformation(location, averageCookies, maxC, minC);
+
+  event.target.newLocation.value = null;
+  event.target.newMin.value = null;
+  event.target.newMax.value = null;
+  event.target.newAverageCookies.value = null;
+  shopList.push(storeSubmission);
+
+  document.getElementById('footer').remove();
+  storeSubmission.render();
+  tableFooter();
+}
+
 
 /* Creating variables for each store location to push each information up.
 -----------------------------------------------------------------------------------------------------*/
@@ -196,6 +191,7 @@ var alki = new StoreInformation('Alki', 4.6, 16, 2);
 /* var userSubmission = new StoreInformation(newUserLocation, newUserAverageCookies, newUserMax, newUserMin, 'new submissions');*/
 
 var allShops = [firstAndPike, seaTacAirport, seattleCenter, capitolHill, alki];
+
 
 
 
