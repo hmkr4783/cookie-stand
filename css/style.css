@@ -1,9 +1,13 @@
+html {
+  background-color: bisque;
+}
 thead {
     background: #888;
   }
   
-h1 {
+header {
   text-align: center;
+  font-size: 5em;
 }
 
 .center {
