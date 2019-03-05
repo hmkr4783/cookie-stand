@@ -1,0 +1,41 @@
+html {
+    margin: 0 auto;
+    text-align: center;
+    background-color: bisque
+}
+
+header {
+    font-size: 5em;
+    margin-bottom: 2em;
+  }
+
+body main h1 {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+body main p {
+    font-size: 1.5em;
+    margin-bottom: 100px;
+}
+
+section h2{
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+section p{
+    font-size: 1.5em;
+    margin-top: 50px;
+}
+
+article h2 {
+    margin-top: 300px;
+    font-size: 3em;
+}
+
+article p{
+    font-size: 1.5em;
+    margin-bottom: 50px;
+}

@@ -27,7 +27,7 @@ var cookieStands = document.getElementById('cookiestands');
 /* making a varible that will store all the shops
 ----------------------------------------------------------------------------------------------------*/
 var shopList = [];
-var additionalStore = [];
+// var additionalStore = [];
 /* This is a contructor function
 ----------------------------------------------------------------------------------------------------*/
 function StoreInformation(location, averageCookies, maxC, minC) {
