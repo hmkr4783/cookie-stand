@@ -134,7 +134,7 @@ function tableFooter() {
   var allTotaled = 0;
   for (var i = 0; i < hours.length; i++) {
     var hourlyTotal = 0;
-    for (var j = 0; j < allShops.length; j++) {
+    for (var j = 0; j < shopList.length; j++) {
       hourlyTotal += shopList[j].cookiesPerCustomerTotal[i];
     }
     /* This makes the total of each hour show up on the table.
@@ -196,10 +196,7 @@ var allShops = [firstAndPike, seaTacAirport, seattleCenter, capitolHill, alki];
 
 
 
-/* This function renders the top part of the table.
-----------------------------------------------------------------------------------------------------*/
-
-/* This function renders the middle part of the table.
+/* Calling all functions for the table.
 ----------------------------------------------------------------------------------------------------*/
 function renderTable() {
   tableHeader();
@@ -208,8 +205,8 @@ function renderTable() {
   }
   tableFooter();
 }
-/* This function renders the lower part of the table.
-----------------------------------------------------------------------------------------------------*/
-renderTable();
+
 newStoreForm.addEventListener('submit', handleSubmit);
+renderTable();
+
 
